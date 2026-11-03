@@ -119,7 +119,7 @@ import { Preview } from "@/components/Preview";
 import { Logo } from "@/components/Logo";
 import { PartsPalette } from "@/components/PartsPalette";
 import { PromptPanel } from "@/components/PromptPanel";
-import { GitHubLink, Mode, Toolbar } from "@/components/Toolbar";
+import { Mode, Toolbar } from "@/components/Toolbar";
 import { SignOutButton } from "@/components/SignOutButton";
 import { LangMenu } from "@/components/Menus";
 import { AiActionKey, AiPanel, aiErrorText } from "@/components/AiPanel";
@@ -136,6 +136,7 @@ import { ColorPanel } from "@/components/ColorPanel";
 import { MotionPanel, ShapePanel, TypePanel } from "@/components/ThemePanel";
 import { ThemeContext, ensureFontLoaded, ensureLangFontLoaded } from "@/lib/theme";
 import { BottomSheet, MobileActionBar, MobileInspector, MobileLang, MobileSettings } from "@/components/Mobile";
+import { SettingsDialog } from "@/components/SettingsDialog";
 import { ConfirmDialog, IconBtn, Segmented } from "@/components/ui";
 import { Lang, LangContext, SEED_TEXT, getLang, setGlobalLang, t, translateDefaultFrameName, translateDefaultText } from "@/lib/i18n";
 
@@ -490,6 +491,7 @@ export default function Editor({ initialLang, onReady }: { initialLang: Lang; on
   };
   const [isMobile, setIsMobile] = useState(false);
   const [sheet, setSheet] = useState<"edit" | "settings" | "lang" | null>(null);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const [confirmClear, setConfirmClear] = useState(false);
   /** frame being rendered offscreen for the PNG export */
   const [exportFrame, setExportFrame] = useState<Frame | null>(null);
@@ -3317,7 +3319,7 @@ export default function Editor({ initialLang, onReady }: { initialLang: Lang; on
           t.isContentEditable);
       if (typing) return;
       // dialogs, the preview and the prompt's full-screen cover own the keyboard while they are up
-      if (confirmClear || pendingImport !== null || shareOpen || previewId !== null || promptCoverUp) return;
+      if (confirmClear || pendingImport !== null || shareOpen || settingsOpen || previewId !== null || promptCoverUp) return;
       const mod = e.ctrlKey || e.metaKey;
       if (mod && e.key.toLowerCase() === "z") {
         e.preventDefault();
@@ -3428,6 +3430,7 @@ export default function Editor({ initialLang, onReady }: { initialLang: Lang; on
     confirmClear,
     pendingImport,
     shareOpen,
+    settingsOpen,
     previewId,
     promptCoverUp,
     editAccess,
@@ -4080,7 +4083,14 @@ export default function Editor({ initialLang, onReady }: { initialLang: Lang; on
               ))}
               <div style={{ flex: 1 }} onClick={() => !leftOpen && setLeftOpen(true)} />
               <LangMenu p={p} onLang={changeLanguage} side="right" size={44} />
-              <GitHubLink p={p} size={44} />
+              <IconBtn
+                icon="settings"
+                p={p}
+                on={settingsOpen}
+                onClick={() => setSettingsOpen(true)}
+                title={t("settingsLabel", lang)}
+                size={44}
+              />
               <SignOutButton p={p} size={44} />
             </div>
             {leftOpen && (
@@ -4907,6 +4917,17 @@ export default function Editor({ initialLang, onReady }: { initialLang: Lang; on
             setLeftOpen(true);
             setLeftTab("ai");
           }}
+        />
+
+        <SettingsDialog
+          open={settingsOpen}
+          onClose={() => setSettingsOpen(false)}
+          p={p}
+          onLang={changeLanguage}
+          paletteKey={paletteKey}
+          onPalette={setPaletteKey}
+          theme={theme}
+          onTheme={patchTheme}
         />
 
 

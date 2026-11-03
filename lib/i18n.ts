@@ -352,6 +352,7 @@ export const UI = {
   done: { ja: "完了", en: "Done", zh: "完成" },
   theme: { ja: "テーマ", en: "Theme", zh: "主题" },
   settings: { ja: "テーマと設定", en: "Theme and settings", zh: "主题与设置" },
+  settingsLabel: { ja: "設定", en: "Settings", zh: "设置" },
   // theme panels
   shape: { ja: "シェイプ", en: "Shape", zh: "形状" },
   typography: { ja: "タイポグラフィ", en: "Type", zh: "字体" },
@@ -545,7 +546,7 @@ export const KO: Record<UIKey, string> = {
   brief: "이 앱에 대한 설명…", appName: "앱 이름", targetPlatform: "구현 대상", targetAndroid: "Android 네이티브 앱으로 만들기",
   targetWeb: "브라우저에서 실행되는 웹 앱으로 만들기", copyPrompt: "프롬프트 복사", back: "뒤로", close: "닫기", cancel: "취소", ok: "확인",
   leading: "앞쪽", trailing: "뒤쪽", title: "제목", body: "본문", message: "메시지", placeholder: "자리 표시자", regular: "보통 굵기", typeBody: "본문", typeTitle: "제목", typeHeadline: "헤드라인", typeDisplay: "디스플레이", home: "홈", screenN: "화면", copySuffix: " 복사본", mobileNote: "전체 기능은 데스크톱 브라우저에서 사용할 수 있습니다",
-  addButton: "버튼 추가", done: "완료", theme: "테마", settings: "테마 및 설정", shape: "모양", typography: "글꼴", motion: "모션",
+  addButton: "버튼 추가", done: "완료", theme: "테마", settings: "테마 및 설정", settingsLabel: "설정", shape: "모양", typography: "글꼴", motion: "모션",
   brightness: "밝기", light: "라이트", dark: "다크", contrast: "대비", bothModes: "둘 다", contrastStandard: "표준", contrastMedium: "중간", contrastHigh: "높음",
   design: "디자인", trigger: "트리거", noteDialog: "버튼 사양", partSpec: "이 부품의 사양", toggleLookHint: "디자인 탭에서 설정할 수 있습니다", addFrameHint: "화면을 추가하면 여기서 이동을 설정할 수 있습니다",
   replay: "다시 재생", toggleTitle: "전환", whenPressedExample: "예: 저장하고 목록으로 돌아가기", resizeWidth: "드래그하여 너비 변경", resizeHeight: "드래그하여 높이 변경",
