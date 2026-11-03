@@ -4,15 +4,16 @@ import "./globals.css";
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "https://lnkiai.github.io"),
-  title: "M3E Canvas",
-  applicationName: "M3E Canvas",
-  alternates: { canonical: `${BASE}/` },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "https://www.lacv.space"),
+  title: "Canvas Apps Movil Android",
+  applicationName: "Canvas Apps Movil Android",
+  alternates: { canonical: `${BASE}/app` },
   description:
-    "Sketch Material 3 Expressive screens in the browser and turn them into vibe-coding prompts. / Material 3 Expressive の画面をブラウザで組み立てて、そのままプロンプトに。",
+    "Bocetos de pantallas Material 3 Expressive en el navegador que se convierten en prompts de vibe-coding para apps Android. Basado en M3E Canvas de lnkiai (MIT).",
+  robots: { index: false, follow: false },
   openGraph: {
-    title: "M3E Canvas",
-    description: "Design Material 3 Expressive screens, link them, preview them, and copy a prompt for your AI coding tool.",
+    title: "Canvas Apps Movil Android",
+    description: "Diseña pantallas Material 3 Expressive, enlázalas, previsualízalas y copia un prompt para tu herramienta de IA.",
     images: [`${BASE}/og.png`],
     type: "website",
   },
@@ -32,7 +33,7 @@ export default function RootLayout({
   return (
     // The script below writes the --skel-* variables onto this element before React hydrates;
     // the DOM is meant to win over the server-rendered (empty) style.
-    <html lang="ja" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <head>
         {/* before the first paint: the panel widths and the theme colours the last visit left, so
             the shell drawn while the editor loads is the one that appears. The editor reads the

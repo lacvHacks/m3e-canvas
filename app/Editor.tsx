@@ -120,6 +120,7 @@ import { Logo } from "@/components/Logo";
 import { PartsPalette } from "@/components/PartsPalette";
 import { PromptPanel } from "@/components/PromptPanel";
 import { GitHubLink, Mode, Toolbar } from "@/components/Toolbar";
+import { SignOutButton } from "@/components/SignOutButton";
 import { LangMenu } from "@/components/Menus";
 import { AiActionKey, AiPanel, aiErrorText } from "@/components/AiPanel";
 import { TidyState, PANEL_FADE_H } from "@/components/ui";
@@ -4080,6 +4081,7 @@ export default function Editor({ initialLang, onReady }: { initialLang: Lang; on
               <div style={{ flex: 1 }} onClick={() => !leftOpen && setLeftOpen(true)} />
               <LangMenu p={p} onLang={changeLanguage} side="right" size={44} />
               <GitHubLink p={p} size={44} />
+              <SignOutButton p={p} size={44} />
             </div>
             {leftOpen && (
             <div style={{ flex: 1, minWidth: 0, display: "flex", flexDirection: "column" }}>

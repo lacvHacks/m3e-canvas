@@ -9,8 +9,9 @@ import { t, useLang } from "@/lib/i18n";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-/** the app's own URL without any hash, and the agent guide beside it */
-const appUrl = () => `${window.location.origin}${BASE}/`;
+/** the editor's own URL without any hash, and the agent guide beside it (/app/agent.md is
+ *  rewritten to /agent.md in next.config.ts) */
+const appUrl = () => `${window.location.origin}${BASE}/app/`;
 const guideUrl = () => `${appUrl()}agent.md`;
 
 /** the text button that opens the dialog: a label and a beta badge, no icon; busy while a model drafts */

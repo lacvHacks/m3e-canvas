@@ -36,7 +36,7 @@ Node 22.12 or newer is required (the test suite needs it); CI uses Node 22. The 
 | Prompt text (ja / en / zh / ko) | `lib/prompt.ts` |
 | Color schemes | `lib/color.ts`, `components/ColorPanel.tsx` |
 | Shape / type / motion panels | `components/ThemePanel.tsx` |
-| The editor itself | `app/page.tsx` |
+| The editor itself | `app/app/page.tsx` (route `/app`) |
 
 ### Adding a part
 

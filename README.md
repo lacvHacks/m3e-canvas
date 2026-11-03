@@ -1,3 +1,9 @@
+> **Canvas Apps Movil Android** (https://www.lacv.space/androidcanvas) es una versión de M3E Canvas
+> con inicio de sesión (Supabase, el mismo de Empresa Control Q&A), publicada bajo `/androidcanvas`.
+> El editor vive en `/androidcanvas/app`; las pantallas de acceso en `/androidcanvas/login`.
+> Proyecto original: [lnkiai/m3e-canvas](https://github.com/lnkiai/m3e-canvas), licencia MIT (ver LICENSE y NOTICE).
+> Variables de entorno: ver `.env.example`.
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/readme/banner-dark.png" />

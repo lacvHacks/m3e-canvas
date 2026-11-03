@@ -99,6 +99,10 @@ export function Skeleton() {
           <div style={{ width: 44, height: 44, display: "grid", placeItems: "center" }}>
             <Bone w={26} h={26} r={13} />
           </div>
+          {/* sign-out */}
+          <div style={{ width: 44, height: 44, display: "grid", placeItems: "center" }}>
+            <Bone w={26} h={26} r={13} />
+          </div>
         </div>
         <PartsGhost />
       </aside>

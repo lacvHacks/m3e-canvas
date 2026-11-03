@@ -7,10 +7,13 @@ import { ShareButton } from "./ShareMenu";
 import { Icon } from "./M3Node";
 import { Popover } from "./Menus";
 import { t, useLang } from "@/lib/i18n";
+import { SignOutButton } from "./SignOutButton";
 
 export type Mode = "select" | "hand";
 
+/** Canvas Apps Movil Android is built on M3E Canvas by lnkiai (MIT); this links to the original. */
 const REPO_URL = "https://github.com/lnkiai/m3e-canvas";
+const CREDIT = "Basado en M3E Canvas de lnkiai (licencia MIT) · GitHub";
 
 export function GitHubLink({ p, size = 40 }: { p: Palette; size?: number }) {
   return (
@@ -18,8 +21,8 @@ export function GitHubLink({ p, size = 40 }: { p: Palette; size?: number }) {
       href={REPO_URL}
       target="_blank"
       rel="noreferrer"
-      title="GitHub"
-      aria-label="GitHub"
+      title={CREDIT}
+      aria-label={CREDIT}
       className="m3-press"
       style={{
         width: size,
@@ -157,7 +160,7 @@ export function Toolbar({
           <IconBtn icon="redo" p={p} onClick={onRedo} disabled={!canRedo} title={t("redo", lang)} size={S} />
           <IconBtn icon="translate" p={p} onClick={onLangSheet} title={t("language", lang)} size={S} />
           <IconBtn icon="palette" p={p} onClick={onSettings} title={t("settings", lang)} size={S} />
-          <GitHubLink p={p} size={S} />
+          <SignOutButton p={p} size={S} />
           <button
             onClick={onPrompt}
             title={t("copyPrompt", lang)}
