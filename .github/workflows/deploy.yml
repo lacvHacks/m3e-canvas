@@ -1,8 +1,8 @@
 name: Deploy to GitHub Pages
 
+# Canvas Apps Movil Android runs on Vercel as a server app (login + proxy), so it no
+# longer builds to a static `out/` folder; this GitHub Pages job only runs by hand.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
