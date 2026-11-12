@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import { PwaPrompts } from "@/components/PwaPrompts";
+import { PwaProvider } from "@/components/PwaProvider";
 import "./globals.css";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -11,6 +13,12 @@ export const metadata: Metadata = {
   description:
     "Bocetos de pantallas Material 3 Expressive en el navegador que se convierten en prompts de vibe-coding para apps Android. Basado en M3E Canvas de lnkiai (MIT).",
   robots: { index: false, follow: false },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Canvas Android",
+  },
+  formatDetection: { telephone: false },
   openGraph: {
     title: "Canvas Apps Movil Android",
     description: "Diseña pantallas Material 3 Expressive, enlázalas, previsualízalas y copia un prompt para tu herramienta de IA.",
@@ -60,7 +68,12 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400..700,0..1,0&display=block"
         />
       </head>
-      <body style={{ fontFamily: "Roboto, system-ui, sans-serif" }}>{children}</body>
+      <body style={{ fontFamily: "Roboto, system-ui, sans-serif" }}>
+        <PwaProvider>
+          {children}
+          <PwaPrompts />
+        </PwaProvider>
+      </body>
     </html>
   );
 }

@@ -1,5 +1,6 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
+import { isPwaPublicPath } from '@/lib/pwa/paths'
 
 /** Pages anyone can open without a session. */
 const PUBLIC_PREFIXES = ['/login', '/signup', '/forgot-password', '/reset-password', '/auth']
@@ -25,6 +26,10 @@ export async function updateSession(request: NextRequest) {
   })
 
   const path = request.nextUrl.pathname
+  // sw.js, the manifest, icons and /~offline must be 200. A redirect to /login
+  // is what makes Chrome refuse "Install app".
+  if (isPwaPublicPath(path)) return supabaseResponse
+
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 

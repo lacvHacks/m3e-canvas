@@ -23,10 +23,13 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
+    "@serwist/turbopack": "^9.5.13",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^26",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "esbuild": "^0.28.2",
+    "serwist": "^9.5.13",
     "tailwindcss": "^4",
     "typescript": "^7",
     "vitest": "^5.0.2"

@@ -1,0 +1,22 @@
+---
+description: Toda app LACV debe ser una PWA instalable (patrón Serwist de aplicoo)
+alwaysApply: true
+---
+
+Toda aplicación que se cree o modifique para LACV debe ser una PWA instalable siguiendo el patrón de lacvHacks/aplicoo (Serwist): manifest completo, iconos, service worker, botón Instalar app, verificación de installability en Chrome.
+
+## Checklist
+
+- [ ] Manifest completo: `id`, `start_url`, `scope`, `display: standalone`, `name` / `short_name`, `theme_color`, `background_color`
+- [ ] `start_url` y `scope` respetan `basePath` / `assetPrefix` (en este repo, URLs relativas al manifest para `/androidcanvas/` en lacv.space y en el dominio de Vercel)
+- [ ] Iconos PNG 192 y 512 con `purpose: any`, más icono maskable, generados del logo
+- [ ] Screenshots `form_factor` wide y narrow
+- [ ] Service worker Serwist con fetch handler (`app/sw.ts`, `/serwist/sw.js`, reescritura a `/sw.js`)
+- [ ] El fetch handler no redirige `/sw.js` ni las navegaciones de manifest, iconos o `/~offline` al login
+- [ ] `/sw.js`, manifest, iconos y `/~offline` excluidos del middleware / proxy de auth
+- [ ] Caché de app shell y fallback offline (`/~offline`)
+- [ ] Botón «Instalar app» / «Install app» (`beforeinstallprompt`); oculto si ya está instalada; instrucciones de Compartir en iOS
+- [ ] `<meta name="theme-color">` y `apple-touch-icon` (`appleWebApp` en el layout)
+- [ ] `withSerwist` solo en production; en development no registrar el service worker
+- [ ] Verificación en Chrome DevTools: Application > Manifest sin errores de installability
+- [ ] Sin Web Push salvo que se pida aparte
